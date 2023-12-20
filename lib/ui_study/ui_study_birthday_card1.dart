@@ -15,13 +15,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const UiStudy(),
+      home: const BirthdayCardApp(),
     );
   }
 }
 
-class UiStudy extends StatelessWidget {
-  const UiStudy({super.key});
+class BirthdayCardApp extends StatelessWidget {
+  const BirthdayCardApp({super.key});
 
   @override
   Widget build(BuildContext context) {
