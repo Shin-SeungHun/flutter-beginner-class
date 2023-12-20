@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       home: MyStarApp(
         star: Star(
           title: '아이유',
-          subTitle: '싱어송라이터, 배우',
+          subTitle: '가수',
           imageUrl:
               'https://i.namu.wiki/i/R0AhIJhNi8fkU2Al72pglkrT8QenAaCJd1as-d_iY6MC8nub1iI5VzIqzJlLa-1uzZm--TkB-KHFiT-P-t7bEg.webp',
           description: '''대한민국의 싱어송라이터이자 배우.
@@ -37,11 +37,7 @@ class MyApp extends StatelessWidget {
 class MyStarApp extends StatefulWidget {
   final Star star;
 
-  const MyStarApp({
-    super.key,
-    required this.star,
-    // required this.star,
-  });
+  const MyStarApp({super.key, required this.star});
 
   @override
   State<MyStarApp> createState() => _MyStarAppState();
@@ -84,6 +80,7 @@ class _MyStarAppState extends State<MyStarApp> {
               Text(
                 widget.star.title,
                 style: const TextStyle(
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -104,14 +101,12 @@ class _MyStarAppState extends State<MyStarApp> {
             },
             child: Row(
               children: [
-                Icon(
-                  isFavorite ? Icons.star : Icons.star_border,
-                  color: Colors.red,
-                ),
+                Icon(isFavorite ? Icons.star : Icons.star_border,
+                    color: Colors.red),
                 const Text('41'),
               ],
             ),
-          ),
+          )
         ],
       ),
     );
@@ -122,15 +117,15 @@ class _MyStarAppState extends State<MyStarApp> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         IconButtonWidget(
-          title: 'Call',
-          icon: Icon(Icons.call),
+          title: 'call',
+          icon: Icon(Icons.phone),
         ),
         IconButtonWidget(
-          title: 'Route',
+          title: 'route',
           icon: Icon(Icons.near_me),
         ),
         IconButtonWidget(
-          title: 'Share',
+          title: 'share',
           icon: Icon(Icons.share),
         ),
       ],
@@ -142,6 +137,7 @@ class _MyStarAppState extends State<MyStarApp> {
       padding: const EdgeInsets.all(32.0),
       child: Text(
         widget.star.description,
+        // overflow: TextOverflow.ellipsis,
       ),
     );
   }
@@ -165,7 +161,9 @@ class IconButtonWidget extends StatelessWidget {
           icon.icon,
           color: Colors.blue,
         ),
-        Text(title),
+        Text(
+          title,
+        )
       ],
     );
   }

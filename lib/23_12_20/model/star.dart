@@ -3,7 +3,6 @@ class Star {
   String subTitle;
   String imageUrl;
   String description;
-  bool isFavorite;
 
 //<editor-fold desc="Data Methods">
   Star({
@@ -11,7 +10,6 @@ class Star {
     required this.subTitle,
     required this.imageUrl,
     required this.description,
-    required this.isFavorite,
   });
 
   @override
@@ -22,20 +20,18 @@ class Star {
           title == other.title &&
           subTitle == other.subTitle &&
           imageUrl == other.imageUrl &&
-          description == other.description &&
-          isFavorite == other.isFavorite);
+          description == other.description);
 
   @override
   int get hashCode =>
       title.hashCode ^
       subTitle.hashCode ^
       imageUrl.hashCode ^
-      description.hashCode ^
-      isFavorite.hashCode;
+      description.hashCode;
 
   @override
   String toString() {
-    return 'Star{ title: $title, subTitle: $subTitle, imageUrl: $imageUrl, description: $description, isFavorite: $isFavorite,}';
+    return 'Star{ title: $title, subTitle: $subTitle, imageUrl: $imageUrl, description: $description}';
   }
 
   Star copyWith({
@@ -50,7 +46,6 @@ class Star {
       subTitle: subTitle ?? this.subTitle,
       imageUrl: imageUrl ?? this.imageUrl,
       description: description ?? this.description,
-      isFavorite: isFavorite ?? this.isFavorite,
     );
   }
 
@@ -60,7 +55,6 @@ class Star {
       'subTitle': subTitle,
       'imageUrl': imageUrl,
       'description': description,
-      'isFavorite': isFavorite,
     };
   }
 
@@ -70,7 +64,6 @@ class Star {
       subTitle: map['subTitle'] as String,
       imageUrl: map['imageUrl'] as String,
       description: map['description'] as String,
-      isFavorite: map['isFavorite'] as bool,
     );
   }
 
