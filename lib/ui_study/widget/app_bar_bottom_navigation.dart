@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_beginner_class/ui_study/widget/app_bar_pages/connect_to_device_page.dart';
+import 'package:flutter_beginner_class/ui_study/widget/app_bar_pages/notification_page.dart';
+import 'package:flutter_beginner_class/ui_study/widget/app_bar_pages/user_page.dart';
+import 'app_bar_pages/search_page.dart';
 import 'bottom_pages/add_content.dart';
 import 'bottom_pages/home.dart';
 import 'bottom_pages/shorts.dart';
@@ -16,15 +19,13 @@ class AppBarBottomNavigation extends StatefulWidget {
 class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
   int _selectedIndex = 0;
 
-  static List<Widget> pages = <Widget>[
+  static List<Widget> pages = [
     Home(),
     Shorts(),
     AddContent(),
     Subscribe(),
     VideoLibrary()
   ];
-
-  void _onItemTap(int index) {}
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +40,11 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
             child: IconButton(
               icon: Icon(Icons.tap_and_play),
               onPressed: () {
-                // TODO: 'tap_and_play' 아이콘을 눌렀을 때 수행할 동작 추가
-                print('Tap and play icon pressed');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ConnectToDevicePage()),
+                );
               },
             ),
           ),
@@ -49,7 +53,10 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
             child: IconButton(
               icon: Icon(Icons.notification_add),
               onPressed: () {
-                // TODO: 'notification_add' 아이콘을 눌렀을 때 수행할 동작 추가
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NotificationPage()),
+                );
                 print('Notification add icon pressed');
               },
             ),
@@ -59,19 +66,26 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
             child: IconButton(
               icon: Icon(Icons.search),
               onPressed: () {
-                // TODO: 'search' 아이콘을 눌렀을 때 수행할 동작 추가
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => SearchScreen()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchPage()),
+                );
               },
             ),
           ),
           Padding(
             padding: EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              radius: 17.0, // 선호하는 크기로 반지름 조정
-              backgroundImage: AssetImage('assets/image/youtube_profile.jpg'),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => UserPage()),
+                );
+              },
+              child: CircleAvatar(
+                radius: 17.0, // 선호하는 크기로 반지름 조정
+                backgroundImage: AssetImage('assets/image/youtube_profile.jpg'),
+              ),
             ),
           ),
         ],

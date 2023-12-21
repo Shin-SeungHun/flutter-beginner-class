@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-
 import 'app_bar_bottom_navigation.dart';
 
 void main() {
@@ -20,5 +18,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
