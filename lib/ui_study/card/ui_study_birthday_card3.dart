@@ -42,17 +42,17 @@ class BirthdayCardApp extends StatelessWidget {
                   'Happy Birthday Sam!',
                   style: TextStyle(fontSize: 30),
                 ),
-                // ignore: prefer_const_constructors
-                Text(
+                const Text(
                   '- from Emma',
-                  style: const TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20),
                 ),
                 Expanded(
                   child: Align(
-                      alignment: Alignment.center,
-                      child: Lottie.asset(
-                        'assets/lottie/birthday.json',
-                      )),
+                    alignment: Alignment.center,
+                    child: Lottie.asset(
+                      'assets/lottie/birthday.json',
+                    ),
+                  ),
                 ),
               ],
             ),
