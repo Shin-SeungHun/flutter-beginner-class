@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_beginner_class/ui_study/widget/app_bar_pages/connect_to_device_page.dart';
 import 'package:flutter_beginner_class/ui_study/widget/app_bar_pages/notification_page.dart';
 import 'package:flutter_beginner_class/ui_study/widget/app_bar_pages/user_page.dart';
+import 'package:flutter_beginner_class/ui_study/widget/model/video.dart';
 import 'app_bar_pages/search_page.dart';
 import 'bottom_pages/add_content.dart';
 import 'bottom_pages/home.dart';
@@ -18,9 +19,9 @@ class AppBarBottomNavigation extends StatefulWidget {
 
 class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
   int _selectedIndex = 0;
-
+static String url = 'https://i.namu.wiki/i/R0AhIJhNi8fkU2Al72pglkrT8QenAaCJd1as-d_iY6MC8nub1iI5VzIqzJlLa-1uzZm--TkB-KHFiT-P-t7bEg.webp';
   static List<Widget> pages = [
-    Home(),
+    Home(video: Video(title: '장충소', subTitle: 'subTitle', thumbnailUrl: url, upLoaderUrl: url)),
     Shorts(),
     AddContent(),
     Subscribe(),
