@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
           scrollDirection: Axis.horizontal,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(1.0),
               child: IconButton(
                 icon: Icon(Icons.explore_outlined, size: 35),
                 onPressed: () {},
