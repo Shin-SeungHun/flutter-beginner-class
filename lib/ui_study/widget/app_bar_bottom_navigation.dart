@@ -31,9 +31,10 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const FlutterLogo(),
-        title: const Text('F tube'),
         elevation: 0,
+        leading: Image.asset('assets/image/icon_youtube.png', fit: BoxFit.cover,),
+        title: const Text('Youtube', style: TextStyle(fontSize: 20, fontFamily: 'Pretendard'),),
+
         actions: [
           IconButton(
             icon: Icon(Icons.tap_and_play),
