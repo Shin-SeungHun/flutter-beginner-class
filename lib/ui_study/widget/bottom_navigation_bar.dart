@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_beginner_class/ui_study/widget/pages/add_content.dart';
+import 'package:flutter_beginner_class/ui_study/widget/pages/home.dart';
+import 'package:flutter_beginner_class/ui_study/widget/pages/shorts.dart';
+import 'package:flutter_beginner_class/ui_study/widget/pages/subscribe.dart';
+import 'package:flutter_beginner_class/ui_study/widget/pages/video_library.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,21 +18,31 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       darkTheme: ThemeData.dark(),
       theme: ThemeData.light(),
-
-
-      home: const MyHomePage(),
+      home: const AppBarBottomNavigation(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class AppBarBottomNavigation extends StatefulWidget {
+  const AppBarBottomNavigation({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<AppBarBottomNavigation> createState() => _AppBarBottomNavigationState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
+  int _selectedIndex = 0;
+
+  static List<Widget> pages = <Widget>[
+    Home(),
+    Shorts(),
+    AddContent(),
+    Subscribe(),
+    VideoLibrary()
+  ];
+
+  void _onItemTap(int index) {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,16 +67,29 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: EdgeInsets.all(8.0),
             child: CircleAvatar(
               radius: 17.0, // 선호하는 크기로 반지름 조정
-              backgroundImage:
-                  AssetImage('assets/image/youtube_profile.jpg'),
+              backgroundImage: AssetImage('assets/image/youtube_profile.jpg'),
             ),
           ),
         ],
       ),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: pages,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.grey,
         selectedItemColor: Colors.white,
-        currentIndex: 0,
+        showSelectedLabels: true,
+        // 선택된 라벨 보이기
+        showUnselectedLabels: true,
+        // 선택되지 않은 라벨 보이기
+        currentIndex: _selectedIndex,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+          print('Selected index: $index');
+        },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: '홈'),
           BottomNavigationBarItem(
@@ -71,9 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.subscriptions_outlined), label: '구독'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.video_library),
-            label: '보관함',
-          ),
+              icon: Icon(Icons.video_library), label: '보관함'),
         ],
       ),
     );
