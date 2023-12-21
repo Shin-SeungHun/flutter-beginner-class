@@ -35,44 +35,38 @@ class _AppBarBottomNavigationState extends State<AppBarBottomNavigation> {
         title: const Text('F tube'),
         elevation: 0,
         actions: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: IconButton(
-              icon: Icon(Icons.tap_and_play),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ConnectToDevicePage()),
-                );
-              },
-            ),
+          IconButton(
+            icon: Icon(Icons.tap_and_play),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ConnectToDevicePage()),
+              );
+            },
           ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: IconButton(
-              icon: Icon(Icons.notification_add),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => NotificationPage()),
-                );
-                print('Notification add icon pressed');
-              },
-            ),
+          // ),
+
+          IconButton(
+            icon: Icon(Icons.notification_add),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NotificationPage()),
+              );
+              print('Notification add icon pressed');
+            },
           ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SearchPage()),
-                );
-              },
-            ),
+
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SearchPage()),
+              );
+            },
           ),
+
           Padding(
             padding: EdgeInsets.all(8.0),
             child: GestureDetector(
