@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         leading: const FlutterLogo(),
-        title: const Text('Ftube'),
+        title: const Text('F tube'),
         elevation: 0,
         actions: const [
           Padding(
@@ -50,7 +50,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Padding(
             padding: EdgeInsets.all(8.0),
-            child: Icon(Icons.account_circle),
+            child: CircleAvatar(
+              radius: 17.0, // 선호하는 크기로 반지름 조정
+              backgroundImage:
+                  AssetImage('assets/image/youtube_profile.jpg'),
+            ),
           ),
         ],
       ),
