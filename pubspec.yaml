@@ -67,6 +67,7 @@ flutter:
     - assets/lottie/
     - assets/image/
     - assets/image/youtube_profile.jpg
+    - assets/starbucks_image/
     #- assets/fonts
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
@@ -116,3 +117,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+
