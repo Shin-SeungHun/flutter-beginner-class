@@ -34,6 +34,8 @@ class _SeoulTimeAppState extends State<SeoulTimeApp> {
   final TimeApi _api = TimeApi();
   Time? _time;
 
+  bool get isLoading => _time == null;
+
   @override
   void initState() {
     init();
@@ -55,20 +57,22 @@ class _SeoulTimeAppState extends State<SeoulTimeApp> {
         leading: const FlutterLogo(),
         title: const Text('기존 방식'),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Text(
-              _time!.time,
-              style: const TextStyle(fontSize: 20),
+      body: isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : Center(
+              child: Column(
+                children: [
+                  Text(
+                    _time!.time,
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                  Text(
+                    _time!.utcTime,
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                ],
+              ),
             ),
-            Text(
-              _time!.utcTime,
-              style: const TextStyle(fontSize: 20),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
