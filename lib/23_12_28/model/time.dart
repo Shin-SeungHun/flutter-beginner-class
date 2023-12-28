@@ -9,7 +9,6 @@ class Time {
   @JsonKey(name: 'utc_datetime')
   String utcTime;
 
-
   Time({
     required this.time,
     required this.utcTime,
