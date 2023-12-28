@@ -4,8 +4,11 @@ part 'time.g.dart';
 
 @JsonSerializable()
 class Time {
+  @JsonKey(name: 'datetime')
   String time;
+  @JsonKey(name: 'utc_datetime')
   String utcTime;
+
 
   Time({
     required this.time,
